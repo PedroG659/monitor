@@ -20,9 +20,17 @@ jobs:
       - name: Set vars
         id: vars
         run: |
-          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
-          echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
-          echo "NAMESPACE=${{ secrets.K8S_NAMESPACE || 'default' }}" >> $GITHUB_OUTPUT
+          IMAGE="tymoshi/monitor"
+          TAG_SHA="${GITHUB_SHA::7}"
+          # Se o secret K8S_NAMESPACE não estiver definido, usa 'default'
+          if [ -z "${{ secrets.K8S_NAMESPACE }}" ]; then
+            NAMESPACE="default"
+          else
+            NAMESPACE="${{ secrets.K8S_NAMESPACE }}"
+          fi
+          echo "IMAGE=$IMAGE" >> $GITHUB_OUTPUT
+          echo "TAG_SHA=$TAG_SHA" >> $GITHUB_OUTPUT
+          echo "NAMESPACE=$NAMESPACE" >> $GITHUB_OUTPUT
 
       - name: Setup kubectl
         uses: azure/setup-kubectl@v4
@@ -39,7 +47,6 @@ jobs:
           kubectl get ns ${{ steps.vars.outputs.NAMESPACE }} || \
           kubectl create ns ${{ steps.vars.outputs.NAMESPACE }}
 
-      # Aplica/garante os manifests base (Service, Prometheus, Grafana, Nginx)
       - name: Apply base manifests (Service, Prometheus, Grafana, Nginx)
         run: |
           kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/service.yaml || true
