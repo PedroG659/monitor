@@ -14,7 +14,9 @@ spec:
     spec:
       containers:
         - name: monitor
-          image: monitor:latest
-          imagePullPolicy: Never 
+          # Imagem hospedada no Docker Hub
+          image: tymsohi/monitor:latest
+          # Boa prática para evitar falhas caso a imagem já exista localmente
+          imagePullPolicy: IfNotPresent
           ports:
-          - containerPort: 3000
+            - containerPort: 3000
