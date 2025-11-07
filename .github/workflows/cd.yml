@@ -22,7 +22,7 @@ jobs:
         id: vars
         run: |
           echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
-          echo "TAG_SHA=$(echo ${GITHUB_SHA} | cut -c1-7)" >> $GITHUB_OUTPUT
+          echo "TAG_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
           if [ -z "${{ secrets.K8S_NAMESPACE }}" ]; then
             echo "NAMESPACE=default" >> $GITHUB_OUTPUT
           else
@@ -43,16 +43,14 @@ jobs:
 
       # Cria o namespace, se ainda não existir
       - name: Create namespace if not exists
-        env:
-          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
+          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
           kubectl get ns "$NAMESPACE" || kubectl create ns "$NAMESPACE"
 
       # Aplica os manifests base do ambiente (Prometheus, Grafana, Nginx etc.)
       - name: Apply base manifests (Service, Prometheus, Grafana, Nginx)
-        env:
-          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
+          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
           kubectl apply -n "$NAMESPACE" -f k8s/service.yaml || true
           kubectl apply -n "$NAMESPACE" -f k8s/prometheus-deployment.yaml || true
           kubectl apply -n "$NAMESPACE" -f k8s/grafana-deployment.yaml || true
@@ -62,31 +60,27 @@ jobs:
 
       # Aplica o deployment principal da aplicação (primeira vez)
       - name: Apply app deployment (first time)
-        env:
-          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
+          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
           kubectl apply -n "$NAMESPACE" -f k8s/deployment.yaml
 
       # Atualiza a imagem com a tag correspondente ao commit
       - name: Set image to new tag
-        env:
-          IMAGE: ${{ steps.vars.outputs.IMAGE }}
-          TAG_SHA: ${{ steps.vars.outputs.TAG_SHA }}
-          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl set image deployment/monitor monitor="$IMAGE:$TAG_SHA" -n "$NAMESPACE"
+          kubectl set image deployment/monitor \
+            monitor="${{ steps.vars.outputs.IMAGE }}:${{ steps.vars.outputs.TAG_SHA }}" \
+            -n "${{ steps.vars.outputs.NAMESPACE }}"
 
       # Aguarda o rollout do novo deployment
       - name: Wait rollout
-        env:
-          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl rollout status deployment/monitor -n "$NAMESPACE" --timeout=120s
+          kubectl rollout status deployment/monitor \
+            -n "${{ steps.vars.outputs.NAMESPACE }}" \
+            --timeout=120s
 
       # Exibe os serviços e pods (debug)
       - name: Show services (debug)
-        env:
-          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
+          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
           kubectl get svc -n "$NAMESPACE"
           kubectl get pods -o wide -n "$NAMESPACE"
