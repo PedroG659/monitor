@@ -3,78 +3,48 @@ name: CI - Build & Push Docker
 on:
   push:
     branches: [ "main" ]
-  pull_request:
-    branches: [ "main" ]
-
-permissions:
-  contents: read
-  packages: write
 
 jobs:
-  ci:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Setup Node
+      - name: Configurar Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          node-version: 20
 
-      - name: Install deps
-        run: |
-          if [ -f package-lock.json ]; then
-            npm ci
-          else
-            npm install
-          fi
+      - name: Instalar dependências
+        run: npm install
 
       - name: Run tests (skip for now)
         run: |
           if npm run | grep -q " test"; then
             echo "Executando testes..."
-            npm test || echo "Testes inexistentes, continuando pipeline."
+            npm test || echo "Testes inexistentes ou falharam — continuando pipeline."
           else
             echo "Sem script de teste. Pulando etapa."
           fi
 
-      # Opcional: linters
-      # - name: Lint
-      #   run: |
-      #     if npm run | grep -q " lint"; then
-      #       npm run lint
-      #     else
-      #       echo "Sem script lint. Pulando."
-      #     fi
-
-      - name: Set image tags
-        id: vars
-        run: |
-          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
-          echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
-
-      - name: Setup QEMU
-        uses: docker/setup-qemu-action@v3
-
-      - name: Setup Buildx
-        uses: docker/setup-buildx-action@v3
-
-      - name: Login to DockerHub
+      - name: Logar no Docker Hub
         uses: docker/login-action@v3
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build & Push
-        uses: docker/build-push-action@v6
-        with:
-          context: .
-          file: ./Dockerfile
-          push: true
-          tags: |
-            ${{ steps.vars.outputs.IMAGE }}:latest
-            ${{ steps.vars.outputs.IMAGE }}:${{ steps.vars.outputs.TAG_SHA }}
-          cache-from: type=registry,ref=${{ steps.vars.outputs.IMAGE }}:buildcache
-          cache-to: type=registry,ref=${{ steps.vars.outputs.IMAGE }}:buildcache,mode=max
+      - name: Build da imagem Docker
+        run: docker build -t ${{ secrets.DOCKERHUB_USERNAME }}/monitor:latest .
+
+      - name: Tag com SHA do commit
+        run: docker tag ${{ secrets.DOCKERHUB_USERNAME }}/monitor:latest ${{ secrets.DOCKERHUB_USERNAME }}/monitor:${{ github.sha }}
+
+      - name: Push das imagens para o Docker Hub
+        run: |
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/monitor:latest
+          docker push ${{ secrets.DOCKERHUB_USERNAME }}/monitor:${{ github.sha }}
+
+      - name: Exibir informações da imagem
+        run: docker images ${{ secrets.DOCKERHUB_USERNAME }}/monitor
