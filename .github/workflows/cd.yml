@@ -17,6 +17,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
+      # ✅ Correção: uso de env + fallback seguro para default
       - name: Set vars
         id: vars
         env:
@@ -24,7 +25,7 @@ jobs:
         run: |
           IMAGE="tymoshi/monitor"
           TAG_SHA="${GITHUB_SHA::7}"
-          NAMESPACE="${K8S_NAMESPACE:-default}" # usa 'default' se a env estiver vazia
+          NAMESPACE="${K8S_NAMESPACE:-default}"
 
           echo "IMAGE=$IMAGE" >> $GITHUB_OUTPUT
           echo "TAG_SHA=$TAG_SHA" >> $GITHUB_OUTPUT
