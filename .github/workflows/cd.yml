@@ -3,7 +3,7 @@ name: CD - Deploy to Kubernetes
 on:
   workflow_run:
     workflows: ["CI - Build & Push Docker"]
-    types: [ "completed" ]
+    types: ["completed"]
 
 permissions:
   contents: read
@@ -22,9 +22,12 @@ jobs:
       - name: Set vars
         id: vars
         run: |
-          echo "IMAGE=tymsohi/monitor" >> $GITHUB_OUTPUT
+          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
           echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
-          echo "NAMESPACE=${{ secrets.K8S_NAMESPACE || 'default' }}" >> $GITHUB_OUTPUT
+          if [ -z "$NAMESPACE" ]; then
+            NAMESPACE="default"
+          fi
+          echo "NAMESPACE=$NAMESPACE" >> $GITHUB_OUTPUT
 
       # 3️⃣ Instalar kubectl
       - name: Setup kubectl
