@@ -10,8 +10,8 @@ permissions:
 
 jobs:
   deploy:
-    runs-on: ubuntu-latest
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
 environment: production  # opcional: exige aprovação manual antes do deploy
 
     steps:
@@ -23,13 +23,9 @@ environment: production  # opcional: exige aprovação manual antes do deploy
       - name: Set vars
         id: vars
         run: |
-          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
+          echo "IMAGE=tymsohi/monitor" >> $GITHUB_OUTPUT
           echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
-          if [ -z "${{ secrets.K8S_NAMESPACE }}" ]; then
-            echo "NAMESPACE=default" >> $GITHUB_OUTPUT
-          else
-            echo "NAMESPACE=${{ secrets.K8S_NAMESPACE }}" >> $GITHUB_OUTPUT
-          fi
+          echo "NAMESPACE=${{ secrets.K8S_NAMESPACE || 'default' }}" >> $GITHUB_OUTPUT
 
       # 3️⃣ Instalar kubectl
       - name: Setup kubectl
@@ -37,7 +33,7 @@ environment: production  # opcional: exige aprovação manual antes do deploy
         with:
           version: 'latest'
 
-      # 4️⃣ Configurar kubeconfig
+      # 4️⃣ Configurar kubeconfig a partir do segredo codificado
       - name: Configure kubeconfig
         run: |
           mkdir -p $HOME/.kube
@@ -49,33 +45,32 @@ environment: production  # opcional: exige aprovação manual antes do deploy
           kubectl get ns ${{ steps.vars.outputs.NAMESPACE }} || \
           kubectl create ns ${{ steps.vars.outputs.NAMESPACE }}
 
-      # 6️⃣ Aplicar manifests base (opcional)
-      - name: Apply base manifests
-        continue-on-error: true
+      # 6️⃣ Aplicar serviços e componentes estáticos (opcional, só precisa na primeira vez)
+      - name: Apply base manifests (Service, Prometheus, Grafana, Nginx)
         run: |
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/service.yaml
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/prometheus-deployment.yaml
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/grafana-deployment.yaml
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-deployment.yaml
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-service.yaml
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/prometheus-config.yaml
+          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/service.yaml || true
+          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/prometheus-deployment.yaml || true
+          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/grafana-deployment.yaml || true
+          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-deployment.yaml || true
+          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-service.yaml || true
+          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/prometheus-config.yaml || true
 
-      # 7️⃣ Aplicar o Deployment do app
-      - name: Apply app deployment
+      # 7️⃣ Aplicar o Deployment do app (se ainda não existir)
+      - name: Apply app deployment (first time)
         run: |
           kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/deployment.yaml
 
-      # 8️⃣ Atualizar imagem
+      # 8️⃣ Atualizar imagem com a nova tag (idempotente)
       - name: Set image to new tag
         run: |
           kubectl set image deployment/monitor monitor=${{ steps.vars.outputs.IMAGE }}:${{ steps.vars.outputs.TAG_SHA }} -n ${{ steps.vars.outputs.NAMESPACE }}
 
-      # 9️⃣ Esperar rollout
+      # 9️⃣ Aguardar rollout completo
       - name: Wait rollout
         run: |
           kubectl rollout status deployment/monitor -n ${{ steps.vars.outputs.NAMESPACE }} --timeout=120s
 
-      # 🔍 10️⃣ Mostrar status
+      # 🔍 10️⃣ Mostrar status dos serviços e pods (debug)
       - name: Show services (debug)
         run: |
           kubectl get svc -n ${{ steps.vars.outputs.NAMESPACE }}
