@@ -3,7 +3,7 @@ name: CD - Deploy to Kubernetes
 on:
   workflow_run:
     workflows: ["CI - Build & Push Docker"]
-    types: ["completed"]
+    types: [ "completed" ]
 
 permissions:
   contents: read
@@ -14,73 +14,53 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      # Define variáveis (imagem, tag, namespace)
-      - name: Set vars
+      - name: Set variables
         id: vars
         run: |
-          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
-          echo "TAG_SHA=$(echo ${{ github.sha }} | cut -c1-7)" >> $GITHUB_OUTPUT
+          echo "IMAGE=tymoshi/monitor" >> $GITHUB_ENV
+          echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
           if [ -z "${{ secrets.K8S_NAMESPACE }}" ]; then
-            echo "NAMESPACE=default" >> $GITHUB_OUTPUT
+            echo "NAMESPACE=default" >> $GITHUB_ENV
           else
-            echo "NAMESPACE=${{ secrets.K8S_NAMESPACE }}" >> $GITHUB_OUTPUT
+            echo "NAMESPACE=${{ secrets.K8S_NAMESPACE }}" >> $GITHUB_ENV
           fi
 
-      # Instala kubectl
       - name: Setup kubectl
         uses: azure/setup-kubectl@v4
         with:
           version: 'latest'
 
-      # Configura kubeconfig a partir do segredo
       - name: Configure kubeconfig
         run: |
           mkdir -p $HOME/.kube
           echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > $HOME/.kube/config
 
-      # Cria o namespace, se ainda não existir
       - name: Create namespace if not exists
         run: |
-          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
-          kubectl get ns "$NAMESPACE" || kubectl create ns "$NAMESPACE"
+          kubectl get ns $NAMESPACE || kubectl create ns $NAMESPACE
 
-      # Aplica os manifests base do ambiente (Prometheus, Grafana, Nginx etc.)
-      - name: Apply base manifests (Service, Prometheus, Grafana, Nginx)
+      - name: Apply base manifests
         run: |
-          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
-          kubectl apply -n "$NAMESPACE" -f k8s/service.yaml || true
-          kubectl apply -n "$NAMESPACE" -f k8s/prometheus-deployment.yaml || true
-          kubectl apply -n "$NAMESPACE" -f k8s/grafana-deployment.yaml || true
-          kubectl apply -n "$NAMESPACE" -f k8s/nginx-deployment.yaml || true
-          kubectl apply -n "$NAMESPACE" -f k8s/nginx-service.yaml || true
-          kubectl apply -n "$NAMESPACE" -f k8s/prometheus-config.yaml || true
+          for f in service prometheus-deployment grafana-deployment nginx-deployment nginx-service prometheus-config; do
+            kubectl apply -n $NAMESPACE -f k8s/$f.yaml || true
+          done
 
-      # Aplica o deployment principal da aplicação (primeira vez)
-      - name: Apply app deployment (first time)
+      - name: Apply app deployment
         run: |
-          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
-          kubectl apply -n "$NAMESPACE" -f k8s/deployment.yaml
+          kubectl apply -n $NAMESPACE -f k8s/deployment.yaml
 
-      # Atualiza a imagem com a tag correspondente ao commit
-      - name: Set image to new tag
+      - name: Update image to new tag
         run: |
-          kubectl set image deployment/monitor \
-            monitor="${{ steps.vars.outputs.IMAGE }}:${{ steps.vars.outputs.TAG_SHA }}" \
-            -n "${{ steps.vars.outputs.NAMESPACE }}"
+          kubectl set image deployment/monitor monitor=$IMAGE:$TAG_SHA -n $NAMESPACE
 
-      # Aguarda o rollout do novo deployment
-      - name: Wait rollout
+      - name: Wait for rollout
         run: |
-          kubectl rollout status deployment/monitor \
-            -n "${{ steps.vars.outputs.NAMESPACE }}" \
-            --timeout=120s
+          kubectl rollout status deployment/monitor -n $NAMESPACE --timeout=120s
 
-      # Exibe os serviços e pods (debug)
-      - name: Show services (debug)
+      - name: Debug info
         run: |
-          NAMESPACE="${{ steps.vars.outputs.NAMESPACE }}"
-          kubectl get svc -n "$NAMESPACE"
-          kubectl get pods -o wide -n "$NAMESPACE"
+          kubectl get pods -o wide -n $NAMESPACE
+          kubectl get svc -n $NAMESPACE
