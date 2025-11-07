@@ -34,7 +34,7 @@ jobs:
           if [ -z "${K8S_NAMESPACE}" ]; then
             echo "NAMESPACE=default" >> $GITHUB_ENV
           else
-            echo "NAMESPACE=${K8S_NAMESPACE}" >> $GITHUB_ENV
+            echo "NAMESPACE=${K8S_NAMESPACE}" >> $GITHUB_EN
           fi
         env:
           K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE }}
