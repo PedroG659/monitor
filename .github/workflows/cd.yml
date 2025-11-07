@@ -14,56 +14,32 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout do código
         uses: actions/checkout@v4
 
-      - name: Setup kubectl
-        uses: azure/setup-kubectl@v4
-        with:
-          version: 'latest'
-
-      - name: Configure kubeconfig
+      - name: Configurar kubectl com kubeconfig do segredo
         run: |
           mkdir -p $HOME/.kube
-          echo "${KUBE_CONFIG_DATA}" | base64 -d > $HOME/.kube/config
-        env:
-          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > $HOME/.kube/config
+          echo "✅ Kubeconfig configurado"
 
-      - name: Set variables
+      - name: Definir variáveis de ambiente
+        id: vars
         run: |
-          if [ -z "${K8S_NAMESPACE}" ]; then
-            echo "NAMESPACE=default" >> $GITHUB_ENV
-          else
-            echo "NAMESPACE=${K8S_NAMESPACE}" >> $GITHUB_ENV
-          fi
-        env:
-          K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE }}
+          echo "NAMESPACE=${{ secrets.K8S_NAMESPACE || 'default' }}" >> $GITHUB_ENV
+          echo "IMAGE=${{ secrets.DOCKER_IMAGE || 'node-prometheus-app:latest' }}" >> $GITHUB_ENV
+          echo "✅ Variáveis de ambiente configuradas"
 
-      - name: Create namespace if not exists
+      - name: Criar namespace (se não existir)
         run: |
-          kubectl get ns $NAMESPACE || kubectl create ns $NAMESPACE
+          echo "🔎 Verificando namespace: $NAMESPACE"
+          kubectl get ns "$NAMESPACE" || kubectl create ns "$NAMESPACE"
 
-      - name: Apply base manifests
+      - name: Fazer deploy no Kubernetes
         run: |
-          for f in service prometheus-deployment grafana-deployment nginx-deployment nginx-service prometheus-config; do
-            kubectl apply -n $NAMESPACE -f k8s/$f.yaml || true
-          done
+          echo "🚀 Aplicando manifests no namespace: $NAMESPACE"
+          kubectl apply -n "$NAMESPACE" -f k8s/
 
-      - name: Apply app deployment
+      - name: Verificar pods
         run: |
-          kubectl apply -n $NAMESPACE -f k8s/deployment.yaml
-
-      - name: Update image to latest
-        run: |
-          kubectl set image deployment/monitor monitor=${DOCKERHUB_USERNAME}/monitor:latest -n $NAMESPACE
-        env:
-          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
-
-      - name: Wait rollout
-        run: |
-          kubectl rollout status deployment/monitor -n $NAMESPACE --timeout=120s
-
-      - name: Debug info
-        run: |
-          kubectl get pods -o wide -n $NAMESPACE
-          kubectl get svc -n $NAMESPACE
+          kubectl get pods -n "$NAMESPACE"
