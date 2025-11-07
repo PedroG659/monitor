@@ -1,0 +1,79 @@
+name: CD - Deploy to Kubernetes
+on:
+workflow_run:
+workflows: ["CI - Build & Push Docker"]
+types: [ "completed" ]
+permissions:
+contents: read
+jobs:
+deploy:
+if: ${{ github.event.workflow_run.conclusion == 'success' }}
+
+06/11/25 5
+
+runs-on: ubuntu-latest
+environment: production # opcional: exige aprovação
+steps:
+- name: Checkout
+uses: actions/checkout@v4
+- name: Set vars
+id: vars
+run: |
+echo "IMAGE=seuusuario/monitor" >> $GITHUB_OUTPUT
+echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+echo "NAMESPACE=${{ secrets.K8S_NAMESPACE || 'default' }}" >>
+$GITHUB_OUTPUT
+- name: Setup kubectl
+uses: azure/setup-kubectl@v4
+with:
+version: 'latest'
+- name: Configure kubeconfig
+run: |
+mkdir -p $HOME/.kube
+echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > $HOME/.ku
+be/config
+- name: Create namespace if not exists
+run: |
+kubectl get ns ${{ steps.vars.outputs.NAMESPACE }} || \
+kubectl create ns ${{ steps.vars.outputs.NAMESPACE }}
+# Aplica/garante os serviços/ingress/etc. estáticos (opcional na primeir
+a vez)
+- name: Apply base manifests (Service, Prometheus, Grafana, Nginx)
+run: |
+kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/servic
+e.yaml || true
+kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/promet
+heus-deployment.yaml || true
+
+06/11/25 6
+
+kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/grafan
+a-deployment.yaml || true
+
+kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-
+deployment.yaml || true
+
+kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-
+service.yaml || true
+
+kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/promet
+heus-config.yaml || true
+# Aplica/garante o Deployment (se ainda não existir)
+- name: Apply app deployment (first time)
+run: |
+kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/deploy
+ment.yaml
+# Atualiza a imagem para a tag nova (idempotente)
+- name: Set image to new tag
+run: |
+kubectl set image deployment/monitor monitor=${{ steps.vars.output
+s.IMAGE }}:${{ steps.vars.outputs.TAG_SHA }} -n ${{ steps.vars.outputs.NA
+MESPACE }}
+- name: Wait rollout
+run: |
+kubectl rollout status deployment/monitor -n ${{ steps.vars.outputs.N
+AMESPACE }} --timeout=120s
+- name: Show services (debug)
+run: |
+kubectl get svc -n ${{ steps.vars.outputs.NAMESPACE }}
+kubectl get pods -o wide -n ${{ steps.vars.outputs.NAMESPACE }}
