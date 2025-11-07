@@ -20,7 +20,7 @@ jobs:
       - name: Set vars
         id: vars
         run: |
-          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
+          echo "IMAGE=PedroG659/monitor" >> $GITHUB_OUTPUT
           echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
 
       - name: Setup kubectl
