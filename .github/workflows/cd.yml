@@ -12,6 +12,7 @@ jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-latest
+    environment: production  # opcional: exige aprovação manual
 
     steps:
       - name: Checkout
@@ -20,8 +21,9 @@ jobs:
       - name: Set vars
         id: vars
         run: |
-          echo "IMAGE=PedroG659/monitor" >> $GITHUB_OUTPUT
+          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
           echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          echo "NAMESPACE=${{ secrets.K8S_NAMESPACE || 'default' }}" >> $GITHUB_OUTPUT
 
       - name: Setup kubectl
         uses: azure/setup-kubectl@v4
