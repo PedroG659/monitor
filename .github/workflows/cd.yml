@@ -19,15 +19,13 @@ jobs:
 
       - name: Set vars
         id: vars
+        env:
+          K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE }}
         run: |
           IMAGE="tymoshi/monitor"
           TAG_SHA="${GITHUB_SHA::7}"
-          # Se o secret K8S_NAMESPACE não estiver definido, usa 'default'
-          if [ -z "${{ secrets.K8S_NAMESPACE }}" ]; then
-            NAMESPACE="default"
-          else
-            NAMESPACE="${{ secrets.K8S_NAMESPACE }}"
-          fi
+          NAMESPACE="${K8S_NAMESPACE:-default}" # usa 'default' se a env estiver vazia
+
           echo "IMAGE=$IMAGE" >> $GITHUB_OUTPUT
           echo "TAG_SHA=$TAG_SHA" >> $GITHUB_OUTPUT
           echo "NAMESPACE=$NAMESPACE" >> $GITHUB_OUTPUT
