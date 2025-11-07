@@ -3,7 +3,7 @@ name: CD - Deploy to Kubernetes
 on:
   workflow_run:
     workflows: ["CI - Build & Push Docker"]
-    types: [ "completed" ]
+    types: ["completed"]
 
 permissions:
   contents: read
@@ -17,19 +17,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # ✅ Correção: uso de env + fallback seguro para default
       - name: Set vars
         id: vars
-        env:
-          K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE }}
         run: |
-          IMAGE="tymoshi/monitor"
-          TAG_SHA="${GITHUB_SHA::7}"
-          NAMESPACE="${K8S_NAMESPACE:-default}"
-
-          echo "IMAGE=$IMAGE" >> $GITHUB_OUTPUT
-          echo "TAG_SHA=$TAG_SHA" >> $GITHUB_OUTPUT
-          echo "NAMESPACE=$NAMESPACE" >> $GITHUB_OUTPUT
+          echo "IMAGE=tymoshi/monitor" >> $GITHUB_OUTPUT
+          echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
+          # Se o segredo não existir, usa "default" como fallback
+          if [ -z "${{ secrets.K8S_NAMESPACE }}" ]; then
+            echo "NAMESPACE=default" >> $GITHUB_OUTPUT
+          else
+            echo "NAMESPACE=${{ secrets.K8S_NAMESPACE }}" >> $GITHUB_OUTPUT
+          fi
 
       - name: Setup kubectl
         uses: azure/setup-kubectl@v4
@@ -42,32 +40,45 @@ jobs:
           echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > $HOME/.kube/config
 
       - name: Create namespace if not exists
+        env:
+          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl get ns ${{ steps.vars.outputs.NAMESPACE }} || \
-          kubectl create ns ${{ steps.vars.outputs.NAMESPACE }}
+          kubectl get ns "$NAMESPACE" || kubectl create ns "$NAMESPACE"
 
       - name: Apply base manifests (Service, Prometheus, Grafana, Nginx)
+        env:
+          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/service.yaml || true
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/prometheus-deployment.yaml || true
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/grafana-deployment.yaml || true
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-deployment.yaml || true
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/nginx-service.yaml || true
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/prometheus-config.yaml || true
+          kubectl apply -n "$NAMESPACE" -f k8s/service.yaml || true
+          kubectl apply -n "$NAMESPACE" -f k8s/prometheus-deployment.yaml || true
+          kubectl apply -n "$NAMESPACE" -f k8s/grafana-deployment.yaml || true
+          kubectl apply -n "$NAMESPACE" -f k8s/nginx-deployment.yaml || true
+          kubectl apply -n "$NAMESPACE" -f k8s/nginx-service.yaml || true
+          kubectl apply -n "$NAMESPACE" -f k8s/prometheus-config.yaml || true
 
       - name: Apply app deployment (first time)
+        env:
+          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/deployment.yaml
+          kubectl apply -n "$NAMESPACE" -f k8s/deployment.yaml
 
       - name: Set image to new tag
+        env:
+          IMAGE: ${{ steps.vars.outputs.IMAGE }}
+          TAG_SHA: ${{ steps.vars.outputs.TAG_SHA }}
+          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl set image deployment/monitor monitor=${{ steps.vars.outputs.IMAGE }}:${{ steps.vars.outputs.TAG_SHA }} -n ${{ steps.vars.outputs.NAMESPACE }}
+          kubectl set image deployment/monitor monitor="$IMAGE:$TAG_SHA" -n "$NAMESPACE"
 
       - name: Wait rollout
+        env:
+          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl rollout status deployment/monitor -n ${{ steps.vars.outputs.NAMESPACE }} --timeout=120s
+          kubectl rollout status deployment/monitor -n "$NAMESPACE" --timeout=120s
 
       - name: Show services (debug)
+        env:
+          NAMESPACE: ${{ steps.vars.outputs.NAMESPACE }}
         run: |
-          kubectl get svc -n ${{ steps.vars.outputs.NAMESPACE }}
-          kubectl get pods -o wide -n ${{ steps.vars.outputs.NAMESPACE }}
+          kubectl get svc -n "$NAMESPACE"
+          kubectl get pods -o wide -n "$NAMESPACE"
