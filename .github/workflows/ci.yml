@@ -32,7 +32,7 @@ jobs:
           fi
 
       - name: Run tests (skip for now)
-        run: echo "Pulando etapa de testes (nenhum teste configurado)."
+        run: echo "Skipping tests..."
 
       # Opcional: linters
       # - name: Lint
