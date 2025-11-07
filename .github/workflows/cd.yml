@@ -17,17 +17,6 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Set variables
-        id: vars
-        run: |
-          echo "IMAGE=tymoshi/monitor" >> $GITHUB_ENV
-          echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_ENV
-          if [ -z "${{ secrets.K8S_NAMESPACE }}" ]; then
-            echo "NAMESPACE=default" >> $GITHUB_ENV
-          else
-            echo "NAMESPACE=${{ secrets.K8S_NAMESPACE }}" >> $GITHUB_ENV
-          fi
-
       - name: Setup kubectl
         uses: azure/setup-kubectl@v4
         with:
@@ -36,7 +25,19 @@ jobs:
       - name: Configure kubeconfig
         run: |
           mkdir -p $HOME/.kube
-          echo "${{ secrets.KUBE_CONFIG_DATA }}" | base64 -d > $HOME/.kube/config
+          echo "${KUBE_CONFIG_DATA}" | base64 -d > $HOME/.kube/config
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
+
+      - name: Set variables
+        run: |
+          if [ -z "${K8S_NAMESPACE}" ]; then
+            echo "NAMESPACE=default" >> $GITHUB_ENV
+          else
+            echo "NAMESPACE=${K8S_NAMESPACE}" >> $GITHUB_ENV
+          fi
+        env:
+          K8S_NAMESPACE: ${{ secrets.K8S_NAMESPACE }}
 
       - name: Create namespace if not exists
         run: |
@@ -52,11 +53,13 @@ jobs:
         run: |
           kubectl apply -n $NAMESPACE -f k8s/deployment.yaml
 
-      - name: Update image to new tag
+      - name: Update image to latest
         run: |
-          kubectl set image deployment/monitor monitor=$IMAGE:$TAG_SHA -n $NAMESPACE
+          kubectl set image deployment/monitor monitor=${DOCKERHUB_USERNAME}/monitor:latest -n $NAMESPACE
+        env:
+          DOCKERHUB_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
 
-      - name: Wait for rollout
+      - name: Wait rollout
         run: |
           kubectl rollout status deployment/monitor -n $NAMESPACE --timeout=120s
 
