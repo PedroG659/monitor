@@ -15,7 +15,7 @@ spec:
       containers:
         - name: monitor
           # Imagem hospedada no Docker Hub
-          image: tymoshi/monitor:latest
+          image: tymoshi/monitor:lates
           # Boa prática para evitar falhas caso a imagem já exista localmente
           imagePullPolicy: IfNotPresent
           ports:
