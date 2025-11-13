@@ -48,7 +48,7 @@ jobs:
       - name: Update deployment image
         run: |
           Write-Host "Atualizando imagem do deployment..."
-          kubectl set image deployment/monitor monitor=tymoshi/monitor:latest
+          kubectl set image deployment/monitor monitor=PedroG659/monitor:latest
 
       - name: Wait for rollout
         run: |
