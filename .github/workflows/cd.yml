@@ -3,83 +3,60 @@ name: CD - Deploy to Kubernetes
 on:
   workflow_run:
     workflows: ["CI - Build & Push Docker"]
-    types: [ "completed" ]
-
-permissions:
-  contents: read
+    types: ["completed"]
 
 jobs:
   deploy:
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
+
+    defaults:
+      run:
+        shell: powershell  # usa PowerShell Core para melhor compatibilidade
 
     steps:
-      - name: Checkout
+      - name: Checkout code
         uses: actions/checkout@v4
 
-      # --------------------------
-      # VARIÁVEIS
-      # --------------------------
-      - name: Set vars
-        id: vars
-        run: |
-          echo "IMAGE=seuusuario/monitor" >> $GITHUB_OUTPUT
-          echo "TAG_SHA=${GITHUB_SHA::7}" >> $GITHUB_OUTPUT
-          echo "NAMESPACE=${{ secrets.K8S_NAMESPACE || 'default' }}" >> $GITHUB_OUTPUT
-
-      # --------------------------
-      # KUBECTL
-      # --------------------------
-      - name: Setup kubectl
+      - name: Set up kubectl
         uses: azure/setup-kubectl@v4
-        with:
-          version: 'latest'
 
       - name: Configure kubeconfig
+        env:
+          KUBE_CONFIG_DATA: ${{ secrets.KUBE_CONFIG_DATA }}
         run: |
-          mkdir -p ~/.kube
-          echo "${{ secrets.KUBECONFIG_BASE64 }}" | base64 -d > ~/.kube/config
+          Write-Host "Criando diretório kubeconfig..."
+          New-Item -ItemType Directory -Force -Path "$HOME/.kube" | Out-Null
 
-      - name: Ensure namespace exists
-        run: |
-          kubectl get ns ${{ steps.vars.outputs.NAMESPACE }} \
-            || kubectl create ns ${{ steps.vars.outputs.NAMESPACE }}
+          Write-Host "Decodificando kubeconfig..."
+          $decoded = [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($env:KUBE_CONFIG_DATA))
+          $decoded | Out-File -FilePath "$HOME/.kube/config" -Encoding ascii
 
-      # --------------------------
-      # MANIFESTOS ESTÁVEIS (infra)
-      # Executado sempre, mas idempotente
-      # --------------------------
-      - name: Apply base manifests (Prometheus/Grafana/Nginx/Services)
-        run: |
-          for file in k8s/*.yaml; do
-            case "$file" in
-              *deployment.yaml) continue ;; # ignora deployments da app
-            esac
-            kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f "$file"
-          done
+          Write-Host "Kubeconfig configurado com sucesso!"
 
-      # --------------------------
-      # DEPLOY DA APLICAÇÃO
-      # --------------------------
-      - name: Apply app deployment
+      - name: Test cluster access
         run: |
-          kubectl apply -n ${{ steps.vars.outputs.NAMESPACE }} -f k8s/deployment.yaml
+          Write-Host "Verificando cluster..."
+          kubectl config current-context
+          kubectl cluster-info
 
-      - name: Update app image
+      - name: Apply Kubernetes manifests
         run: |
-          kubectl set image deployment/monitor monitor=${{ steps.vars.outputs.IMAGE }}:${{ steps.vars.outputs.TAG_SHA }} \
-            -n ${{ steps.vars.outputs.NAMESPACE }}
+          Write-Host "Aplicando manifestos Kubernetes..."
+          kubectl apply -f k8s/ --recursive
 
-      - name: Wait rollout
+      - name: Update deployment image
         run: |
-          kubectl rollout status deployment/monitor \
-            -n ${{ steps.vars.outputs.NAMESPACE }} \
-            --timeout=120s
+          Write-Host "Atualizando imagem do deployment..."
+          kubectl set image deployment/monitor monitor=allanprust/monitor:latest
 
-      # --------------------------
-      # DEBUG
-      # --------------------------
-      - name: Show cluster status
+      - name: Wait for rollout
         run: |
-          kubectl get pods -o wide -n ${{ steps.vars.outputs.NAMESPACE }}
-          kubectl get svc -n ${{ steps.vars.outputs.NAMESPACE }}
+          Write-Host "Aguardando atualização do deployment..."
+          kubectl rollout status deployment/monitor --timeout=180s
+
+      - name: Verify deployment
+        run: |
+          Write-Host "Verificando pods e serviços..."
+          kubectl get pods -l app=monitor
+          kubectl get svc
