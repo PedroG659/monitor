@@ -3768,3 +3768,1019 @@
 [2025-11-13 22:38:26Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
 [2025-11-13 22:38:26Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
 [2025-11-13 22:38:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'acc7ade0-2081-4136-beef-dcfd0dd1563d', success rate: 1/1.
+[2025-11-13 22:38:27Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'acc7ade0-2081-4136-beef-dcfd0dd1563d', success rate: 1/1.
+[2025-11-13 22:38:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'acc7ade0-2081-4136-beef-dcfd0dd1563d', success rate: 1/1.
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] Finished process 22912 with exit code 0, and elapsed time 00:02:21.0984526.
+[2025-11-13 22:38:28Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_runner_file_commands\step_summary_fbf008bc-dd85-4f70-9286-49df6aec43da) is empty; skipping attachment upload
+[2025-11-13 22:38:28Z INFO StepsRunner] Step result: 
+[2025-11-13 22:38:28Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "acc7ade0-2081-4136-beef-dcfd0dd1563d",
+  "stepContextName": "__actions_checkout",
+  "hasPreStep": false,
+  "hasPostStep": true,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 142,
+  "startTime": "2025-11-13T22:36:06.8518654Z",
+  "finishTime": "2025-11-13T22:38:28.098186Z"
+}.
+[2025-11-13 22:38:28Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-11-13 22:38:28Z INFO StepsRunner] Current state: job state = ''
+[2025-11-13 22:38:28Z INFO StepsRunner] Processing step: DisplayName='Set vars'
+[2025-11-13 22:38:28Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-13 22:38:28Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\blocks\e3f19c3e-a01a-4ace-89b6-d4a449e73a5e_acc7ade0-2081-4136-beef-dcfd0dd1563d.1
+[2025-11-13 22:38:28Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:38:28Z INFO StepsRunner] Result: true
+[2025-11-13 22:38:28Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-11-13 22:38:28Z INFO StepsRunner] Starting the step.
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:28Z INFO StepsRunner] Which2: 'chcp'
+[2025-11-13 22:38:28Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] Process started with process id 25100, waiting for process exit.
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] Finished process 25100 with exit code 0, and elapsed time 00:00:00.0250452.
+[2025-11-13 22:38:28Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:38:28Z INFO ExecutionContext] Write event payload to C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:38:28Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-11-13 22:38:28Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command error
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command group
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-11-13 22:38:28Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-11-13 22:38:28Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-11-13 22:38:28Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2025-11-13 22:38:28Z INFO ScriptHandler] Defaulting to powershell
+[2025-11-13 22:38:28Z INFO ScriptHandler] Which2: 'powershell'
+[2025-11-13 22:38:28Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:28Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:38:28Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-11-13 22:38:28Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2025-11-13 22:38:28Z INFO ScriptHandler] Defaulting to powershell
+[2025-11-13 22:38:28Z INFO ScriptHandler] Which2: 'powershell'
+[2025-11-13 22:38:28Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\28e3e73e-b50e-4a56-a45f-fb8b724485b1.ps1'"'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\monitor\monitor'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:38:28Z INFO ProcessInvokerWrapper] Process started with process id 11284, waiting for process exit.
+[2025-11-13 22:38:28Z INFO JobServerQueue] Try to append 1 batches web console lines for record 'b0249711-744b-4de0-878b-3bb67f4923b4', success rate: 1/1.
+[2025-11-13 22:38:29Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] Finished process 11284 with exit code 0, and elapsed time 00:00:01.1475100.
+[2025-11-13 22:38:29Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_runner_file_commands\step_summary_9d79729c-f15c-4b43-b908-f68bfbf30f5a) is empty; skipping attachment upload
+[2025-11-13 22:38:29Z INFO StepsRunner] Step result: 
+[2025-11-13 22:38:29Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "b0249711-744b-4de0-878b-3bb67f4923b4",
+  "stepContextName": "vars",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 2,
+  "startTime": "2025-11-13T22:38:28.106952Z",
+  "finishTime": "2025-11-13T22:38:29.3953859Z"
+}.
+[2025-11-13 22:38:29Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-11-13 22:38:29Z INFO StepsRunner] Current state: job state = ''
+[2025-11-13 22:38:29Z INFO StepsRunner] Processing step: DisplayName='Setup kubectl'
+[2025-11-13 22:38:29Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:38:29Z INFO StepsRunner] Result: true
+[2025-11-13 22:38:29Z INFO StepsRunner] Starting the step.
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:29Z INFO StepsRunner] Which2: 'chcp'
+[2025-11-13 22:38:29Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] Process started with process id 28112, waiting for process exit.
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] Finished process 28112 with exit code 0, and elapsed time 00:00:00.0200558.
+[2025-11-13 22:38:29Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Actions': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions'
+[2025-11-13 22:38:29Z INFO ActionManager] Load action that reference repository from 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions\azure\setup-kubectl\v4'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Actions': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions'
+[2025-11-13 22:38:29Z INFO ActionManifestManager] Ignore action property branding.
+[2025-11-13 22:38:29Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Kubectl tool installer",
+  "description": "Install a specific version of kubectl binary. Acceptable values are latest or any semantic version string like 1.15.0",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 3,
+          "line": 4,
+          "col": 4,
+          "lit": "version"
+        },
+        "value": {
+          "type": 0,
+          "file": 3,
+          "line": 7,
+          "col": 16,
+          "lit": "latest"
+        }
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": false,
+    "script": "lib/index.js",
+    "pre": null,
+    "post": null,
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-13 22:38:29Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-13 22:38:29Z INFO ActionManager] Action node.js file: lib/index.js.
+[2025-11-13 22:38:29Z INFO ActionManager] Action post node.js file: N/A.
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:38:29Z INFO ExecutionContext] Write event payload to C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:38:29Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-11-13 22:38:29Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command error
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command group
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-11-13 22:38:29Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:29Z INFO HostContext] Well known directory 'Externals': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\externals'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\externals\node20\bin\node.exe'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions\azure\setup-kubectl\v4\lib/index.js"'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\monitor\monitor'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:38:29Z INFO ProcessInvokerWrapper] Process started with process id 8112, waiting for process exit.
+[2025-11-13 22:38:29Z INFO JobServerQueue] Try to append 1 batches web console lines for record '2731a4d4-f73d-45d7-8d34-693534c56472', success rate: 1/1.
+[2025-11-13 22:38:30Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-11-13 22:38:30Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-13 22:38:30Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\blocks\e3f19c3e-a01a-4ace-89b6-d4a449e73a5e_b0249711-744b-4de0-878b-3bb67f4923b4.1
+[2025-11-13 22:38:30Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-11-13 22:38:36Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:36Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:36Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:46Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:46Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:46Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:38:56Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:38:56Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:38:56Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:06Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:06Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:06Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] Finished process 8112 with exit code 0, and elapsed time 00:00:43.0986101.
+[2025-11-13 22:39:12Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_runner_file_commands\step_summary_c2cbd02e-6d24-4b02-9c43-d8974fc14f83) is empty; skipping attachment upload
+[2025-11-13 22:39:12Z INFO StepsRunner] Step result: 
+[2025-11-13 22:39:12Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "azure/setup-kubectl",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Main",
+  "stepId": "2731a4d4-f73d-45d7-8d34-693534c56472",
+  "stepContextName": "__azure_setup-kubectl",
+  "hasPreStep": false,
+  "hasPostStep": false,
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 44,
+  "startTime": "2025-11-13T22:38:29.3983633Z",
+  "finishTime": "2025-11-13T22:39:12.5482739Z"
+}.
+[2025-11-13 22:39:12Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-11-13 22:39:12Z INFO StepsRunner] Current state: job state = ''
+[2025-11-13 22:39:12Z INFO StepsRunner] Processing step: DisplayName='Configure kubeconfig'
+[2025-11-13 22:39:12Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:39:12Z INFO StepsRunner] Result: true
+[2025-11-13 22:39:12Z INFO StepsRunner] Starting the step.
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:12Z INFO StepsRunner] Which2: 'chcp'
+[2025-11-13 22:39:12Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] Process started with process id 25644, waiting for process exit.
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] Finished process 25644 with exit code 0, and elapsed time 00:00:00.0241188.
+[2025-11-13 22:39:12Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:39:12Z INFO ExecutionContext] Write event payload to C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:39:12Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-11-13 22:39:12Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command error
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command group
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-11-13 22:39:12Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-11-13 22:39:12Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-11-13 22:39:12Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2025-11-13 22:39:12Z INFO ScriptHandler] Defaulting to powershell
+[2025-11-13 22:39:12Z INFO ScriptHandler] Which2: 'powershell'
+[2025-11-13 22:39:12Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:12Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:39:12Z INFO ScriptHandler] Which2: 'pwsh'
+[2025-11-13 22:39:12Z INFO ScriptHandler] pwsh: command not found. Make sure 'pwsh' is installed and its location included in the 'Path' environment variable.
+[2025-11-13 22:39:12Z INFO ScriptHandler] Defaulting to powershell
+[2025-11-13 22:39:12Z INFO ScriptHandler] Which2: 'powershell'
+[2025-11-13 22:39:12Z INFO ScriptHandler] Location: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Arguments: '-command ". 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\1228c8df-0153-4289-94cd-5cc5ddec0a70.ps1'"'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\monitor\monitor'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:39:12Z INFO ProcessInvokerWrapper] Process started with process id 16420, waiting for process exit.
+[2025-11-13 22:39:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '769ac696-a198-40a0-93bf-68da49d7e528', success rate: 1/1.
+[2025-11-13 22:39:13Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-13 22:39:13Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\blocks\e3f19c3e-a01a-4ace-89b6-d4a449e73a5e_2731a4d4-f73d-45d7-8d34-693534c56472.1
+[2025-11-13 22:39:13Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] Finished process 16420 with exit code 1, and elapsed time 00:00:00.8923706.
+[2025-11-13 22:39:13Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_runner_file_commands\step_summary_05f82874-6b40-44d2-a12f-66cd35f6553b) is empty; skipping attachment upload
+[2025-11-13 22:39:13Z INFO StepsRunner] Step result: Failed
+[2025-11-13 22:39:13Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "powershell",
+  "type": "run",
+  "stage": "Main",
+  "stepId": "769ac696-a198-40a0-93bf-68da49d7e528",
+  "stepContextName": "__run",
+  "result": "failed",
+  "errorMessages": [
+    "Process completed with exit code 1."
+  ],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-11-13T22:39:12.5499217Z",
+  "finishTime": "2025-11-13T22:39:13.5255303Z"
+}.
+[2025-11-13 22:39:13Z INFO StepsRunner] Update job result with current step result 'Failed'.
+[2025-11-13 22:39:13Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:13Z INFO StepsRunner] Processing step: DisplayName='Ensure namespace exists'
+[2025-11-13 22:39:13Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:39:13Z INFO StepsRunner] Result: false
+[2025-11-13 22:39:13Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-13 22:39:13Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-13 22:39:13Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:13Z INFO StepsRunner] Processing step: DisplayName='Apply base manifests (Prometheus/Grafana/Nginx/Services)'
+[2025-11-13 22:39:13Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:39:13Z INFO StepsRunner] Result: false
+[2025-11-13 22:39:13Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-13 22:39:13Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-13 22:39:13Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:13Z INFO StepsRunner] Processing step: DisplayName='Apply app deployment'
+[2025-11-13 22:39:13Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:39:13Z INFO StepsRunner] Result: false
+[2025-11-13 22:39:13Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-13 22:39:13Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-13 22:39:13Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:13Z INFO StepsRunner] Processing step: DisplayName='Update app image'
+[2025-11-13 22:39:13Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:39:13Z INFO StepsRunner] Result: false
+[2025-11-13 22:39:13Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-13 22:39:13Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-13 22:39:13Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:13Z INFO StepsRunner] Processing step: DisplayName='Wait rollout'
+[2025-11-13 22:39:13Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:39:13Z INFO StepsRunner] Result: false
+[2025-11-13 22:39:13Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-13 22:39:13Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-13 22:39:13Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:13Z INFO StepsRunner] Processing step: DisplayName='Show cluster status'
+[2025-11-13 22:39:13Z INFO StepsRunner] Evaluating: success()
+[2025-11-13 22:39:13Z INFO StepsRunner] Result: false
+[2025-11-13 22:39:13Z INFO StepsRunner] Skipping step due to condition evaluation.
+[2025-11-13 22:39:13Z INFO StepsRunner] No need for updating job result with current step result 'Skipped'.
+[2025-11-13 22:39:13Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:13Z INFO StepsRunner] Processing step: DisplayName='Post Checkout'
+[2025-11-13 22:39:13Z INFO StepsRunner] Evaluating: always()
+[2025-11-13 22:39:13Z INFO StepsRunner] Result: true
+[2025-11-13 22:39:13Z INFO StepsRunner] Starting the step.
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:13Z INFO StepsRunner] Which2: 'chcp'
+[2025-11-13 22:39:13Z INFO StepsRunner] Location: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   File name: 'C:\Windows\system32\chcp.COM'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Arguments: '65001'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Encoding web name:  ; code page: ''
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:39:13Z INFO JobServerQueue] Try to append 1 batches web console lines for record '769ac696-a198-40a0-93bf-68da49d7e528', success rate: 1/1.
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] Process started with process id 27980, waiting for process exit.
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] Finished process 27980 with exit code 0, and elapsed time 00:00:00.0141525.
+[2025-11-13 22:39:13Z INFO StepsRunner] Successfully returned to code page 65001 (UTF8)
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Actions': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions'
+[2025-11-13 22:39:13Z INFO ActionManager] Load action that reference repository from 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions\actions\checkout\v4'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Actions': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions'
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Loaded action.yml file: {
+  "name": "Checkout",
+  "description": "Checkout a Git repository at a particular version",
+  "inputs": {
+    "type": 2,
+    "map": [
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 4,
+          "col": 3,
+          "lit": "repository"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 6,
+          "col": 14,
+          "expr": "github.repository"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 7,
+          "col": 3,
+          "lit": "ref"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 12,
+          "col": 3,
+          "lit": "token"
+        },
+        "value": {
+          "type": 3,
+          "file": 2,
+          "line": 24,
+          "col": 14,
+          "expr": "github.token"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 25,
+          "col": 3,
+          "lit": "ssh-key"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 37,
+          "col": 3,
+          "lit": "ssh-known-hosts"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 42,
+          "col": 3,
+          "lit": "ssh-strict"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 47,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 48,
+          "col": 3,
+          "lit": "ssh-user"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 51,
+          "col": 14,
+          "lit": "git"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 52,
+          "col": 3,
+          "lit": "persist-credentials"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 54,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 55,
+          "col": 3,
+          "lit": "path"
+        },
+        "value": ""
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 57,
+          "col": 3,
+          "lit": "clean"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 59,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 60,
+          "col": 3,
+          "lit": "filter"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 64,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 65,
+          "col": 3,
+          "lit": "sparse-checkout"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 69,
+          "col": 14,
+          "lit": ""
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 70,
+          "col": 3,
+          "lit": "sparse-checkout-cone-mode"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 73,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 74,
+          "col": 3,
+          "lit": "fetch-depth"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 76,
+          "col": 14,
+          "lit": "1"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 77,
+          "col": 3,
+          "lit": "fetch-tags"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 79,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 80,
+          "col": 3,
+          "lit": "show-progress"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 82,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 83,
+          "col": 3,
+          "lit": "lfs"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 85,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 86,
+          "col": 3,
+          "lit": "submodules"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 94,
+          "col": 14,
+          "lit": "false"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 95,
+          "col": 3,
+          "lit": "set-safe-directory"
+        },
+        "value": {
+          "type": 0,
+          "file": 2,
+          "line": 97,
+          "col": 14,
+          "lit": "true"
+        }
+      },
+      {
+        "key": {
+          "type": 0,
+          "file": 2,
+          "line": 98,
+          "col": 3,
+          "lit": "github-server-url"
+        },
+        "value": ""
+      }
+    ]
+  },
+  "execution": {
+    "executionType": "nodeJS",
+    "hasPre": false,
+    "hasPost": true,
+    "script": "dist/index.js",
+    "pre": null,
+    "post": "dist/index.js",
+    "nodeVersion": "node20",
+    "cleanupCondition": "always()",
+    "initCondition": "always()"
+  },
+  "deprecated": null
+}
+[2025-11-13 22:39:13Z INFO ActionManager] Action pre node.js file: N/A.
+[2025-11-13 22:39:13Z INFO ActionManager] Action node.js file: dist/index.js.
+[2025-11-13 22:39:13Z INFO ActionManager] Action post node.js file: dist/index.js.
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:39:13Z INFO ExecutionContext] Write event payload to C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_github_workflow\event.json
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Temp': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp'
+[2025-11-13 22:39:13Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IFileCommandExtension'
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'repository': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 6,
+  "col": 14,
+  "lit": "PedroG659/monitor"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'ref': *** value evaluate result: ""
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'token': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 24,
+  "col": 14,
+  "lit": "***"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'ssh-key': *** value evaluate result: ""
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'ssh-known-hosts': *** value evaluate result: ""
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'ssh-strict': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 47,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'ssh-user': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 51,
+  "col": 14,
+  "lit": "git"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'persist-credentials': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 54,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'path': *** value evaluate result: ""
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'clean': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 59,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'filter': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 64,
+  "col": 14,
+  "lit": ""
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'sparse-checkout': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 69,
+  "col": 14,
+  "lit": ""
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'sparse-checkout-cone-mode': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 73,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'fetch-depth': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 76,
+  "col": 14,
+  "lit": "1"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'fetch-tags': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 79,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'show-progress': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 82,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'lfs': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 85,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'submodules': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 94,
+  "col": 14,
+  "lit": "false"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'set-safe-directory': *** value evaluate result: {
+  "type": 0,
+  "file": 2,
+  "line": 97,
+  "col": 14,
+  "lit": "true"
+}
+[2025-11-13 22:39:13Z INFO ActionManifestManager] Input 'github-server-url': *** value evaluate result: ""
+[2025-11-13 22:39:13Z INFO ExtensionManager] Getting extensions for interface: 'GitHub.Runner.Worker.IActionCommandExtension'
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command internal-set-repo-path
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command set-env
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command set-output
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command save-state
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command add-path
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command add-mask
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command add-matcher
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command remove-matcher
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command warning
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command error
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command notice
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command debug
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command group
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command endgroup
+[2025-11-13 22:39:13Z INFO ActionCommandManager] Register action command extension for command echo
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:13Z INFO HostContext] Well known directory 'Externals': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\externals'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] Starting process:
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   File name: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\externals\node20\bin\node.exe'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Arguments: '"C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_actions\actions\checkout\v4\dist/index.js"'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Working directory: 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\monitor\monitor'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Require exit code zero: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Encoding web name: utf-8 ; code page: '65001'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Force kill process on cancellation: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Redirected STDIN: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Persist current code page: 'True'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   Keep redirected STDIN open: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper]   High priority process: 'False'
+[2025-11-13 22:39:13Z INFO ProcessInvokerWrapper] Process started with process id 6232, waiting for process exit.
+[2025-11-13 22:39:13Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-11-13 22:39:13Z INFO AddMaskCommandExtension] Add new secret mask with length of 32
+[2025-11-13 22:39:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1820268f-ce69-4027-bdad-b77bbdae81f2', success rate: 1/1.
+[2025-11-13 22:39:14Z INFO JobServerQueue] Try to upload 1 log files or attachments, success rate: 1/1.
+[2025-11-13 22:39:14Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1820268f-ce69-4027-bdad-b77bbdae81f2', success rate: 1/1.
+[2025-11-13 22:39:14Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-13 22:39:14Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\blocks\e3f19c3e-a01a-4ace-89b6-d4a449e73a5e_769ac696-a198-40a0-93bf-68da49d7e528.1
+[2025-11-13 22:39:15Z INFO JobServerQueue] Tried to upload 1 file(s) to results, success rate: 1/1.
+[2025-11-13 22:39:15Z INFO JobServerQueue] Try to append 1 batches web console lines for record '1820268f-ce69-4027-bdad-b77bbdae81f2', success rate: 1/1.
+[2025-11-13 22:39:16Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:16Z INFO ProcessInvokerWrapper] STDOUT/STDERR stream read finished.
+[2025-11-13 22:39:16Z INFO ProcessInvokerWrapper] Finished process 6232 with exit code 0, and elapsed time 00:00:03.2715401.
+[2025-11-13 22:39:16Z INFO CreateStepSummaryCommand] Step Summary file (C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp\_runner_file_commands\step_summary_9dee906c-92ef-4d79-bdca-0f2cf04b5168) is empty; skipping attachment upload
+[2025-11-13 22:39:16Z INFO StepsRunner] Step result: 
+[2025-11-13 22:39:16Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "actions/checkout",
+  "ref": "v4",
+  "type": "node20",
+  "stage": "Post",
+  "stepId": "1820268f-ce69-4027-bdad-b77bbdae81f2",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 4,
+  "startTime": "2025-11-13T22:39:13.5326384Z",
+  "finishTime": "2025-11-13T22:39:16.8408758Z"
+}.
+[2025-11-13 22:39:16Z INFO StepsRunner] No need for updating job result with current step result 'Succeeded'.
+[2025-11-13 22:39:16Z INFO StepsRunner] Current state: job state = 'Failed'
+[2025-11-13 22:39:16Z INFO JobRunner] Finalize job.
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Diag': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag'
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Diag': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag'
+[2025-11-13 22:39:16Z INFO JobExtension] Initialize Env context
+[2025-11-13 22:39:16Z INFO JobExtension] Initialize steps context
+[2025-11-13 22:39:16Z INFO JobExtension] Total accessible running process: 343.
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 5332 (opera)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 4132 (smartscreen)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 3236 (opera)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 27604 (opera)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 19884 (opera)
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:16Z INFO HostContext] Well known directory 'Work': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work'
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 28584 (opera)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 20088 (git)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 4824 (conhost)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 9272 (git)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 17872 (docker)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 25348 (docker)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 1676 (conhost)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 4288 (conhost)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 13860 (docker)
+[2025-11-13 22:39:16Z INFO JobExtension] Inspecting process environment variables. PID: 23296 (conhost)
+[2025-11-13 22:39:16Z INFO ExecutionContext] Publish step telemetry for current step {
+  "action": "complete_job",
+  "type": "runner",
+  "stage": "Post",
+  "stepId": "8b9d076b-757e-4297-b9a8-35db47b00583",
+  "result": "succeeded",
+  "errorMessages": [],
+  "executionTimeInSeconds": 1,
+  "startTime": "2025-11-13T22:39:16.8493218Z",
+  "finishTime": "2025-11-13T22:39:16.9751786Z"
+}.
+[2025-11-13 22:39:16Z INFO JobRunner] Job result after all job steps finish: Failed
+[2025-11-13 22:39:16Z INFO JobRunner] Completing the job execution context.
+[2025-11-13 22:39:16Z INFO JobRunner] Shutting down the job server queue.
+[2025-11-13 22:39:16Z INFO JobServerQueue] Fire signal to shutdown all queues.
+[2025-11-13 22:39:17Z INFO JobServerQueue] All queue process task stopped.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Try to append 1 batches web console lines for record '8b9d076b-757e-4297-b9a8-35db47b00583', success rate: 1/1.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Web console line queue drained.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Uploading 3 files in one shot.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Try to upload 3 log files or attachments, success rate: 3/3.
+[2025-11-13 22:39:17Z INFO JobServerQueue] File upload queue drained.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Starting results-based upload queue...
+[2025-11-13 22:39:17Z INFO JobServerQueue] Uploading 3 file(s) in one shot through results service.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\blocks\e3f19c3e-a01a-4ace-89b6-d4a449e73a5e_1820268f-ce69-4027-bdad-b77bbdae81f2.1
+[2025-11-13 22:39:17Z INFO JobServerQueue] Got a step log file to send to results service.
+[2025-11-13 22:39:17Z INFO JobServerQueue] Starting upload of step log file to results service ResultsLog, C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\blocks\e3f19c3e-a01a-4ace-89b6-d4a449e73a5e_8b9d076b-757e-4297-b9a8-35db47b00583.1
+[2025-11-13 22:39:18Z INFO JobServerQueue] Got a job log file to send to results service.
+[2025-11-13 22:39:18Z INFO JobServerQueue] Starting upload of job log file to results service ResultsLog, C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\blocks\e3f19c3e-a01a-4ace-89b6-d4a449e73a5e_49f5a1c3-1b72-57d4-89f3-727e5effe419.1
+[2025-11-13 22:39:18Z INFO JobServerQueue] Tried to upload 3 file(s) to results, success rate: 3/3.
+[2025-11-13 22:39:18Z INFO JobServerQueue] Results upload queue drained.
+[2025-11-13 22:39:19Z INFO JobServerQueue] Timeline update queue drained.
+[2025-11-13 22:39:19Z INFO JobServerQueue] Disposing job server ...
+[2025-11-13 22:39:19Z INFO JobServerQueue] Disposing results server ...
+[2025-11-13 22:39:19Z INFO JobServerQueue] All queue process tasks have been stopped, and all queues are drained.
+[2025-11-13 22:39:19Z INFO TempDirectoryManager] Cleaning runner temp folder: C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_work\_temp
+[2025-11-13 22:39:19Z INFO HostContext] Well known directory 'Bin': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\bin'
+[2025-11-13 22:39:19Z INFO HostContext] Well known directory 'Root': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner'
+[2025-11-13 22:39:19Z INFO HostContext] Well known directory 'Diag': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag'
+[2025-11-13 22:39:19Z INFO HostContext] Well known config file 'Telemetry': 'C:\Users\pedro\Documents\GitHub\monitor\actions-runner\_diag\.telemetry'
+[2025-11-13 22:39:19Z INFO JobRunner] Raising job completed against run service
+[2025-11-13 22:39:19Z INFO Worker] Job completed.
