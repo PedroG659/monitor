@@ -1,0 +1,12 @@
+﻿{
+  "repositoryName": "PedroG659/monitor",
+  "pipelineDirectory": "monitor",
+  "workspaceDirectory": "monitor\\monitor",
+  "repositories": {
+    "PedroG659/monitor": {
+      "repositoryPath": "monitor\\monitor",
+      "lastRunOn": "11/13/2025 19:36:03 -03:00"
+    }
+  },
+  "lastRunOn": "11/13/2025 19:36:03 -03:00"
+}
